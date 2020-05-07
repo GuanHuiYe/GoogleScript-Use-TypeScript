@@ -8,7 +8,6 @@ $ npm install @google/clasp -g
 ```
 $ clasp create  
 ```
-
 ```
 $ clasp open  
 ```
