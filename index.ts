@@ -1,20 +1,24 @@
-const BOOK_NAME:string="googlescript-demo-typescript"
-const SHEET_NAME:string="DEMO"
+function main(): void {}
 
-let g_sheetID:string
+function create_data_base(): void {
+  let spreadsheet = Sheet.create_demo_sheet();
 
-function create_demo_sheet(){ 
-    let spreadsheet = SpreadsheetApp.create(BOOK_NAME);
-    g_sheetID=spreadsheet.getId()
-
-    spreadsheet.insertSheet(SHEET_NAME)
-    Logger.log(`creat sheet success!
-    url: ${spreadsheet.getUrl()}`)
+  Logger.log(`creat sheet success!
+  url: ${spreadsheet.getUrl()}
+  ID: ${spreadsheet.getId()}`);
 }
 
+function import_tmp_data(): void {
+  let data_base: Sheet = new Sheet(g_sheetID);
+  data_base.ImportValues(TMP_MANS);
+}
 
-function main(){
-    Logger.clear()
-    let hey:string='hello world'
-    Logger.log(hey)
+function get_data(): void {
+  let data_base: Sheet = new Sheet(g_sheetID);
+  Logger.log(data_base.GetValues());
+}
+
+function get_data_count(): void {
+  let data_base: Sheet = new Sheet(g_sheetID);
+  Logger.log(data_base.GetValues(5));
 }
